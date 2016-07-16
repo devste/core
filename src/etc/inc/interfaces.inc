@@ -1541,7 +1541,7 @@ EOD;
         }
     }
 
-    if (($interface == "wan" && $founddefaultgw == false) || $setdefaultgw == true) {
+    if (!$founddefaultgw || $setdefaultgw) {
         $mpdconf .= "  set iface route default\n";
     }
     if (isset($ppp['ondemand'])) {
